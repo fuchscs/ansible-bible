@@ -1,0 +1,5 @@
+---
+# tasks file for system_check_sample_roles
+
+- name: Disk check
+  import_tasks: disk_check.yml

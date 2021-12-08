@@ -1,0 +1,14 @@
+---
+- name: Szabad terulet a {{ mountname }} diszken szazalekban
+  assert:
+    that: mount.size_available > mount.size_total|float * 0.70
+    msg: Az alerheto szabad terulet kevesebb, mint 70%
+
+- name: A szabad hely GB-ban a {{ mountname }} diszken
+  debug:
+    msg: "{{ mount.size_available/1024/1024/1024 }} kerekitve ket tizedesre:  {{ '{:0.2f}'.format(mount.size_available/1024/1024/1024) }} GB szabad"
+
+- name: Van-e 10 GB szabad terulet a {{ mountname }} diszken
+  assert:
+    that: mount.size_available/1024/1024/1024 > 10 
+    msg: Nincs 10GB szabad hely

@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: yes
+
+  vars:
+    - mountname: "/boot"
+    - mount: "{{ ansible_mounts | selectattr('mount','equalto',mountname) | list | first }}"
+  
+  roles:
+  - role: system_check_sample_roles
