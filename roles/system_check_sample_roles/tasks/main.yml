@@ -7,3 +7,7 @@
 - name: Ansible facts
   import_tasks: gathering_facts.yml
   tags: gathering_facts
+
+- name: OS check
+  import_tasks: os_check.yml
+  tags: os_check
