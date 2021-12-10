@@ -1,0 +1,4 @@
+---
+- name: Print all available facts
+  debug:
+    var: ansible_facts

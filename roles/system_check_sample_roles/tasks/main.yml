@@ -3,3 +3,7 @@
 
 - name: Disk check
   import_tasks: disk_check.yml
+
+- name: Ansible facts
+  import_tasks: gathering_facts.yml
+  tags: gathering_facts
