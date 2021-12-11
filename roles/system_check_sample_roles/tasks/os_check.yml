@@ -1,10 +1,10 @@
 ---
-- name: Display OS version
+- name: Operacios rendszerrol osszegyujtott adatok
   debug:
     var: ansible_lsb
 
-- name: Os Release minimum 7
+- name: Os Release minimum a system_check_os_release valtozobol ({{ system_check_os_release }})
   assert:
-    that: "{{ ansible_lsb.release }} >= 70"
+    that: "{{ ansible_lsb.release }} >= {{ system_check_os_release }}"
     fail_msg: "OS Release nem jo mert csak {{ ansible_lsb.release }}"
     success_msg: "OS Release {{ ansible_lsb.release }} - fasza"
