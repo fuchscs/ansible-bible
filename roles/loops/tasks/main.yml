@@ -7,3 +7,4 @@
   with_together:
     - "{{ var_list_one }}"
     - "{{ var_list_two }}"
+  tags: with_together
