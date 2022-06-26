@@ -1,13 +1,38 @@
 ---
 # tasks file for system_check_sample_roles
 
+- name: TAGS check
+  fail:
+    msg: Without TAGS doesnt works
+  when: "'all' in ansible_run_tags"
+
+- name: TAGS check
+  fail:
+    msg: "Error - Tag {{ ansible_run_tags }} is undefined. The following tags are supported by role ROLE: dddd"
+#  when: "not 'disk_check' in ansible_run_tags or not 'os_check' in ansible_run_tags"
+  when: 
+    - "not 'os_check' in ansible_run_tags"
+    - "not 'disk_check' in ansible_run_tags"
+  tags: always
+
 - name: Disk check
   import_tasks: disk_check.yml
+  tags: never,disk_check
 
 - name: Ansible facts
   import_tasks: gathering_facts.yml
-  tags: gathering_facts
+  tags: never,gathering_facts
 
 - name: OS check
   import_tasks: os_check.yml
-  tags: os_check
+  tags: never,os_check
+
+- name: Show vara
+  debug:
+    msg: "{{ ansible_run_tags }}"
+  tags: always
+
+- name: TAGS check
+  fail:
+    msg: "Error - Tag {{ ansible_run_tags }} is undefined. The following tags are supported by role ROLE: dddd"
+  when: ("ansible_run_tags != 'gathering_facts'") or ("'os_check' is not in ansible_run_tags") or ("'disk_check' is not in ansible_run_tags")

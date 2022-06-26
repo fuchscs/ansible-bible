@@ -1,0 +1,9 @@
+---
+# tasks file for loops
+
+- name: with_together
+  debug:
+    msg: "with_together: {{ item.0 }} - {{ item.1 }}"
+  with_together:
+    - "{{ var_list_one }}"
+    - "{{ var_list_two }}"

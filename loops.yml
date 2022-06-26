@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: yes
+
+  vars:
+    var_list_one:
+      - 1
+      - 2
+      - 3
+  
+    var_list_two:
+      - a
+      - b
+      - c
+
+  roles:
+  - role: loops
