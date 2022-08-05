@@ -21,3 +21,13 @@
     owner: root
     group: root
     mode: '0777'
+
+- name: Copy directory
+  copy:
+    src: /tmp/testdir
+    dest: /tmp/copy_testdir
+
+- name: Copy content of directory
+  copy:
+    src: /tmp/testdir/
+    dest: /tmp/copy_testdir

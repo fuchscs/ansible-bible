@@ -1,7 +1,9 @@
 #Playbook for copy roles
 ---
-- hosts: localhost
+- hosts: mini
   gather_facts: yes
+  become: yes
+  become_method: sudo
 
   roles:
   - role: copy
