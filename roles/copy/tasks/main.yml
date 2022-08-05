@@ -1,0 +1,23 @@
+---
+# tasks file for copy
+- name: Simple local copy on host
+  copy:
+    src: /tmp/testfile.txt
+    dest: /tmp/copy_testfile.txt
+
+- name: Remote src and delegate to example
+  copy:
+    src: /tmp/testfile.txt
+    dest: /tmp/copy_testfile.txt
+    remote_src: yes
+  delegate_to: localhost
+
+- name: Remote copy
+  copy:
+    src: /tmp/testfile.txt
+    dest: /tmp/copy_testfile.txt
+    remote_src: yes
+    backup: yes
+    owner: root
+    group: root
+    mode: '0777'
