@@ -1,0 +1,10 @@
+---
+galaxy_info:
+  author: Csaba Fuchs
+  description: Ansible Bilbe for Galaxy
+  license: Apache
+  min_ansible_version: 2.5
+
+  galaxy_tags: [ 'ansible', 'example', 'fuchscs' ]
+
+dependencies: []
