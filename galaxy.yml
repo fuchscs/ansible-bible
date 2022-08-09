@@ -10,5 +10,5 @@ license:
 tags:
     - ansible
     - ansible-bible
-    - fuchscs	
+    - fuchscs
 repository: "https://github.com/fuchscs/ansible-bible"
