@@ -1,14 +1,19 @@
-namespace: "fuchscs"
-name: "Ansible Biblia"
-version: "1.0.12"
-readme: "README.md"
+namespace: fuchscs
+name: Ansible Biblia
+version: 1.0.12
+readme: README.md
 authors:
-    - "Csaba Fuchs"
+    - Csaba Fuchs <csaba.fuchs@fuchs.technology>
+description: Examples for Ansible Bible
 dependencies: {}
 license:
-    - "MIT"
+ - Apache-2.0
+license_file: ''
 tags:
     - ansible
     - ansible-bible
     - fuchscs
-repository: "https://github.com/fuchscs/ansible-bible"
+repository: https://github.com/fuchscs/ansible-bible
+documentation: https://fuchs.technology/public.php?contents=documentation/public/ANSIBLE.md
+homepage: https://fuchs.technology
+issues: https://github.com/fuchscs/ansible-bible/issues
