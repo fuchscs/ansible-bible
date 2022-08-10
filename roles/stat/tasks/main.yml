@@ -1,0 +1,20 @@
+---
+# tasks file for stat
+- name: Check if /tmp/testfile.txt  exists
+  stat:
+    path: /tmp/testfile.txt
+  register: file_data
+
+- name: Display stat variable
+  debug:
+    var: file_data
+
+- name: Check that specified user is really the owner of the directory
+  stat:
+    path: /tmp/testfile.txt
+  register: file_data
+
+- name: "Error if user is not the owner of files in directory"
+  fail:
+    msg: "Error: User: fuchscs is not the owner of /tmp/testfile.txt"
+  when: file_data.stat.pw_name != "fuchscsa"
