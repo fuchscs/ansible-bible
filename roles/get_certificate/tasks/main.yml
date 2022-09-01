@@ -1,0 +1,20 @@
+---
+# tasks file for get_certificate
+
+- name: HTTPS Certificate
+  get_certificate:
+    host: "fuchs.technology"
+    port: 443
+  delegate_to: localhost
+  run_once: true
+  register: ft_cert
+
+#- name: Display variable
+#  debug:
+#    msg: "{{ ft_cert }}"
+
+- name: How many days until cert expires
+  debug:
+    msg: "cert expires in: {{ expire_days }} days."
+  vars:
+    expire_days: "{{ (( ft_cert.not_after | to_datetime('%Y%m%d%H%M%SZ')) - (ansible_date_time.iso8601 | to_datetime('%Y-%m-%dT%H:%M:%SZ')) ).days }}"
