@@ -1,0 +1,9 @@
+#Playbook for regex roles
+---
+- hosts: localhost
+  gather_facts: yes
+  become: yes
+  become_method: sudo
+
+  roles:
+  - role: regex

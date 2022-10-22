@@ -1,0 +1,26 @@
+---
+# tasks file for regex
+
+- name: Grep file
+  shell: grep -w 'aaa' /tmp/testfile 
+  register: grep_output
+
+- name: Display output
+  debug:
+    msg: "{{ grep_output.stdout_lines }}"
+
+- name: Make a list
+  set_fact:
+    grep_output: "{{ grep_output.stdout_lines | list }}"
+
+- name: Display output
+  debug:
+    msg: "{{ grep_output }}"
+
+- name: Keep results with number only
+  set_fact:
+    grep_output: "{{ grep_output | regex_findall('aaa [0-9]+') }}"
+
+- name: Display output
+  debug:
+    msg: "{{ grep_output }}"
